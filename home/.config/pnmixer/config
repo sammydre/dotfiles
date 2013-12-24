@@ -1,0 +1,26 @@
+
+<!-- saved from url=(0073)https://raw.github.com/tanayseven/crunchbang_config/master/pnmixer/config -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">
+[PNMixer]
+DisplayTextVolume=true
+TextVolumePosition=3
+MouseScrollStep=10
+HotkeyVolumeStep=10
+MiddleClickAction=0
+CustomCommand=
+VolumeControlCommand=pavucontrol
+VolMuteKey=204
+VolUpKey=204
+VolDownKey=204
+AlsaCard=(default)
+DrawVolMeter=false
+VolMeterPos=0
+VolMeterColor=59624;28270;28270;
+EnableHotKeys=false
+VolMuteMods=0
+VolUpMods=0
+VolDownMods=0
+
+[(default)]
+Channel=Master
+</pre></body><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style></html>

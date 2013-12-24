@@ -1,5 +1,10 @@
 # These things are run when an Openbox X Session is started.
 
+# apps to install
+# apt-get install nitrogen tint2 thunar xfce4-power-manager xfce4-volumed clipit pavucontrol
+#
+# also need pnmixer; compile from source https://github.com/nicklan/pnmixer
+
 # If you want to use GNOME config tools...
 #
 if test -x /usr/lib/openbox/gnome-settings-daemon >/dev/null; then
@@ -14,11 +19,32 @@ fi
 
 tint2 &
 
-# xfce4-power-manager
-# (sleep 4; volumeicon &)
+# Wallpaper
+nitrogen --restore &
+
+# Compositor?
+
+# volume keys - handled by gnome stuff already?
+# xfce4-volumed &  
+
+# volume applet
+(sleep 4; pnmixer & )
+
+# file manager
+thunar &
+
+# clipboard manager
+clipit &
+
+# no bell
+xset b off
+
+# not sure
+# eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+# xmodmap $HOME/.Xmodmap
 
 if [ `hostname` = "sepulchre" ]; then
-        # Stuff specific to my little netbook
-	exit 0
+    # battery applet
+    xfce4-power-manager &
 fi
 
