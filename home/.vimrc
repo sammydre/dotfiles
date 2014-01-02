@@ -2,6 +2,8 @@ syntax on
 color desert
 filetype plugin indent on
 
+set laststatus=2
+set encoding=utf8
 set nocompatible
 set hlsearch
 set incsearch
@@ -33,6 +35,19 @@ if !has("gui_running")
     " decently readable.
     color elflord
   endif
+else
+  if ( hostname() == 'stj-desktop' )
+    set guifont=Envy\ Code\ R\ 9
+    "set guifont=Terminus\ for\ Powerline\ 8
+  elseif ( hostname() == 'BRONCO' )
+    set guifont=Lucida_Console:h9:cANSI
+  else
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
+  endif
+endif
+
+if ( hostname() == 'stj-desktop' )
+  set printdevice=oki-ps
 endif
 
 " Completion of tags and buffers, but don't scan included files.
@@ -40,3 +55,24 @@ set complete=.,w,b,u,t
 
 let g:SuperTabCompletionAfterWhiteSpace = 0
 let g:SuperTabMidWordCompletion = 0
+
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': ['c'],
+                           \ 'passive_filetypes': ['java'] }
+
+" let g:clang_complete_copen = 1
+" let g:clang_complete_macros = 1
+nnoremap <F5> :call g:ClangUpdateQuickFix()<Return>
+nnoremap <F8> :TagbarToggle<CR>
+
+au BufNewFile,BufRead SConscript set ft=python
+
+function! g:AddDiffTab(f1, f2)
+  :tabnew
+  :edit a:f1
+  :diffthis
+  :vsplit
+  :wincmd l
+  :edit a:f2
+  :diffthis
+endf
