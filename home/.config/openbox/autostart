@@ -1,7 +1,7 @@
 # These things are run when an Openbox X Session is started.
 
 # apps to install
-# apt-get install nitrogen tint2 thunar xfce4-power-manager xfce4-volumed clipit pavucontrol
+# apt-get install nitrogen tint2 thunar xfce4-power-manager xfce4-volumed clipit pavucontrol gsimplecal
 #
 # also need pnmixer; compile from source https://github.com/nicklan/pnmixer
 
