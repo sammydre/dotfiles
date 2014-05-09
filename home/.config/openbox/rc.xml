@@ -352,6 +352,11 @@
         <command>nautilus --no-desktop</command>
       </action>
     </keybind>
+    <keybind key="W-F12">
+      <action name="Execute">
+        <command>gnome-screensaver-command --lock</command>
+      </action>
+    </keybind>
     <!-- Launch gnome-screenshot when Print is pressed -->
     <keybind key="Print">
       <action name="Execute">

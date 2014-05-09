@@ -19,6 +19,9 @@ set expandtab
 set shiftwidth=2
 set sts=2
 
+set wildmode=longest,list,full
+set wildmenu
+
 set makeprg=scons\ -Qu
 
 set tags+=~/.vim/systags
