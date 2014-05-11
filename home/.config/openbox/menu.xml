@@ -6,11 +6,11 @@
 
     <menu id="root-menu" label="OpenBox">
 
-        <menu id="apps-menu" label="Applications" 
-            execute="/usr/bin/openbox-xdgmenu /etc/xdg/menus/applications.menu" />
-        <separator />
-
-        <menu id="/Debian" />
+        <menu id="gnome-apps-menu" label="Gnome Applications" 
+            execute="/usr/bin/openbox-xdgmenu /etc/xdg/menus/gnome-applications.menu" />
+        <menu id="xfce-apps-menu" label="XFCE Applications" 
+            execute="/usr/bin/openbox-xdgmenu /etc/xdg/menus/xfce-applications.menu" />
+        <menu id="/Debian" label="Debian Applications" />
         <separator />
 
         <menu id="client-list-menu" />
