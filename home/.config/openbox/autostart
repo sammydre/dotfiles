@@ -23,13 +23,10 @@ fi
 tint2 &
 
 # Wallpaper
-if test -f ~/bin/wallpaper.sh; then
-  ~/bin/wallpaper.sh
-else
-  nitrogen --restore
-fi
+nitrogen --restore
 
 # Compositor?
+[ -f /usr/bin/compton ] && /usr/bin/compton -b
 
 # volume keys - handled by gnome stuff already?
 # xfce4-volumed &  
