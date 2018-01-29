@@ -20,7 +20,12 @@ fi
 #
 #xfce-mcs-manager &
 
-tint2 &
+if [ `hostname` = "stj-laptop" ]; then
+  # tint2 is broken on stj-laptop. Renders incorrectly :(
+  lxpanel &
+else
+  tint2 &
+fi
 
 # Wallpaper
 nitrogen --restore
