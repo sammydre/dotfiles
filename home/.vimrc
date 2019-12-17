@@ -7,14 +7,14 @@ if empty(glob('~/.vim/autoload/plug.vim')) && empty(glob('~/vimfiles/autoload/pl
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'ervandew/supertab'
-Plug 'flazz/vim-colorschemes'
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " And the Vim integration itself
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'ervandew/supertab'
 Plug 'Quramy/tsuquyomi'
 Plug 'https://gn.googlesource.com/gn', { 'rtp': 'misc/vim' }
 call plug#end()
@@ -79,6 +79,8 @@ else
     "set guifont=Terminus\ for\ Powerline\ 8
   elseif ( hostname() == 'BRONCO' )
     set guifont=Lucida_Console:h9:cANSI
+  elseif ( hostname() == 'stj-laptop' )
+    set guifont=Monospace\ 11
   else
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
   endif
