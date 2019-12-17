@@ -1,5 +1,6 @@
+" {{{ Plugins
 " Install Plug : https://github.com/junegunn/vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob('~/.vim/autoload/plug.vim')) && empty(glob('~/vimfiles/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -10,10 +11,18 @@ Plug 'ervandew/supertab'
 Plug 'flazz/vim-colorschemes'
 " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" And the Vim integration itself
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'https://gn.googlesource.com/gn', { 'rtp': 'misc/vim' }
 call plug#end()
-
+" }}}
+" {{{ Basic settings
 syntax on
-color desert
+" color desert
+color southernlights
 filetype plugin indent on
 
 set laststatus=2
@@ -27,31 +36,43 @@ set ignorecase
 set smartcase
 set number
 set modeline
-set bs=2
-
 set expandtab
-set shiftwidth=2
-set sts=2
 
 set wildmode=longest,list,full
 set wildmenu
 
+set foldmethod=marker
+
+set bs=2
+set shiftwidth=2
+set sts=2
 set makeprg=scons\ -Qu
 
 set tags+=~/.vim/systags
 set tags+=tags
+" }}}
+" Key bindings
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
+
+
+" Other, TBD
 
 let pascal_gpc=1
 
 if !has("gui_running")
-  if $COLORTERM == "gnome-terminal"
+  if $TERM == "screen"
     set t_Co=256
-    color desert256
-  else
+  endif
+  "if $COLORTERM == "gnome-terminal"
+  "  set t_Co=256
+  "  color desert256
+  "else
     " Would be nice to find a better colour scheme here, but at least it is
     " decently readable.
-    color elflord
-  endif
+  "  color elflord
+  "endif
 else
   if ( hostname() == 'stj-desktop' )
     set guifont=Envy\ Code\ R\ 9
