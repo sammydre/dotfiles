@@ -123,3 +123,16 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# For WSL, assume no session manager setting up dbus, etc. Was designed to
+# make gnome-keyring work for svn...
+if test -n "$WSL_DISTRO_NAME"; then
+  if test -z "$DBUS_SESSION_BUS_ADDRESS" ; then
+    eval `env -u DISPLAY dbus-launch --sh-syntax`
+    echo "D-Bus per-session daemon address is: $DBUS_SESSION_BUS_ADDRESS"
+  fi
+  if test -z "$GNOME_KEYRING_CONTROL" ; then
+    eval `gnome-keyring-daemon`
+    echo "Gnome-keyring-daemon running : $GNOME_KEYRING_CONTROL"
+  fi
+fi
