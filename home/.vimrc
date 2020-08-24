@@ -17,6 +17,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'ervandew/supertab'
 Plug 'Quramy/tsuquyomi'
 Plug 'https://gn.googlesource.com/gn', { 'rtp': 'misc/vim' }
+Plug 'keith/swift.vim'
 call plug#end()
 " }}}
 " {{{ Basic settings

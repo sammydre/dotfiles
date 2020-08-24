@@ -120,6 +120,8 @@ fi
 
 export EDITOR=vim
 
+export PATH="~/bin:$PATH"
+
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
